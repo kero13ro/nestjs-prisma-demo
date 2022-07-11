@@ -21,41 +21,45 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## History
+## Config History
 
-```json
+```bash
 npm install -g @nestjs/cli
 
-nest new [nestjs-tutorial]
-```
+nest new [name]
 
-```json
-yarn add class-validator class-transformer // for validation
-yarn add argon2 // for encrypt
-yarn start:dev
-```
+# for prisma global config
+yarn add @nestjs/config
 
-```
 nest g module user
-nest g module bookmark
 
+# init docker and postgres
 docker compose up dev-db -d
 docker ps
-docker logs 5b69b8250406
 
+# init Prima
 yarn add -D prisma
 yarn add -D @prisma/client
 npx prisma init
 
+# init data type
 npx prisma migrate dev
   > migration name? init
 npx prisma studio
 
+# inject Prisma service
 nest g service prisma --no-spec
 nest g module prisma
 
-yarn add @nestjs/config
 
+# (for validation)
+yarn add class-validator class-transformer
+
+# (for encrypt)
+yarn add argon2
+yarn start:dev
+
+# (for jwt auth)
 yarn add @nestjs/passport passport @nestjs/jwt passport-jwt
 yarn add -D @types/passport-jwt
 ```
